@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Binex | User Data Entry Fom</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dataform.css') }}">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container">
+    <div class="title">Binex-MLP Data Entry Form</div>
+    <div class="content">
+      <form action="" method="post">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Name:</span>
+            <input type="text" placeholder="Customers Name." name="unit" required>
+          </div>
+          <div class="input-box">
+            <span class="details">ID/Passport:</span>
+            <input type="text" placeholder="ID/Passport Number" name="instructor">
+          </div>
+          <div class="input-box">
+            <span class="details">Employment Status:</span>
+            <select name="" id="">
+              <option value="">Employed</option>
+              <option value="">Self-Employed</option>
+              <option value="">Unemployed</option>
+            </select>
+          </div>
+          <div class="input-box">
+            <span class="details">Occupation:</span>
+            <input type="text" placeholder="Current Occupation" name="unit" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Monthly Income:</span>
+            <input type="number" placeholder="Monthly Income in Ksh" name="unit" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Marital Status</span>
+            <select name="" id="">
+              <option value="">Married</option>
+              <option value="">Single</option>
+              <option value="">Divorced</option>
+              <option value="">Separated</option>
+              <option value="">Widowed</option>
+            </select>
+          
+          </div>
+          <div class="input-box">
+            <span class="details">Loan Amount:</span>
+            <input type="number" placeholder="Loan Amount in Ksh" name="date" >
+          </div>
+          <div class="input-box">
+            <span class="details">Loan Tenor</span>
+            <input type="number" placeholder="Loan Tenor in Months" name="time">
+          </div>
+          <div class="input-box">
+            <span class="details">Credit Score:</span>
+            <input type="number" placeholder="Your Credit Score" name="unit" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Tax Obligation:</span>
+            <select name="" id="">
+              <option value="">Income Tax</option>
+              <option value="">VAT</option>
+              <option value="">PAYE</option>
+              <option value="">Residential Rental Income Tax</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="button">
+          <input type="submit" value="Submit Information">
+        </div>
+        
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

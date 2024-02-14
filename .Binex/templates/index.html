@@ -1,67 +1,177 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Loan Eligibility Prediction</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Binex | Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <!--<link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">-->
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
+
 </head>
+
 <body>
-    <h1>Loan Eligibility Prediction</h1>
-    <form action="{{predict}}" method="POST">
-        <label for="gender">Gender:</label>
-        <select name="gender" id="gender">
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-        </select>
-        <br><br>
-        <label for="married">Married:</label>
-        <select name="married" id="married">
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-        </select>
-        <br><br>
-        <label for="dependents">Dependents:</label>
-        <input type="text" name="dependents" id="dependents">
-        <br><br>
-        <label for="education">Education:</label>
-        <select name="education" id="education">
-            <option value="Graduate">Graduate</option>
-            <option value="Not Graduate">Not Graduate</option>
-        </select>
-        <br><br>
-        <label for="self_employed">Self Employed:</label>
-        <select name="self_employed" id="self_employed">
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-        </select>
-        <br><br>
-        <label for="applicant_income">Applicant Income:</label>
-        <input type="number" name="applicant_income" id="applicant_income">
-        <br><br>
-        <label for="coapplicant_income">Coapplicant Income:</label>
-        <input type="number" name="coapplicant_income" id="coapplicant_income">
-        <br><br>
-        <label for="loan_amount">Loan Amount:</label>
-        <input type="number" name="loan_amount" id="loan_amount">
-        <br><br>
-        <label for="loan_term">Loan Term (in months):</label>
-        <input type="number" name="loan_term" id="loan_term">
-        <br><br>
-        <label for="credit_history">Credit History:</label>
-        <select name="credit_history" id="credit_history">
-            <option value="1.0">1.0</option>
-            <option value="0.0">0.0</option>
-        </select>
-        <br><br>
-        <label for="property_area">Property Area:</label>
-        <select name="property_area" id="property_area">
-            <option value="Urban">Urban</option>
-            <option value="Semiurban">Semiurban</option>
-            <option value="Rural">Rural</option>
-        </select>
-        <br><br>
-        <input type="submit" value="Predict">
-    </form>
-    {% if prediction %}
-        <h2>Prediction: {{ prediction }}</h2>
-    {% endif %}
+
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">info@binex.com</a></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+254 725 220 212</span></i>
+      </div>
+      <div class="social-links d-none d-md-flex align-items-center">
+        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="#">Binex<span>.</span></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#footer">Join</a></li>
+          <li><a class="nav-link scrollto" href="../Login/login.html">Sign In</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container" data-aos="zoom-out" data-aos-delay="100">
+      <img class="right" src="assets/img/Green Modern How To Invest Your Money Youtube Thumbnail (1).png" alt="" width="400px" height="400px">
+      <h1>Welcome to <span>Binex-MLP</span></h1>
+      <h2>A Loan Eligibility Prediction System Using Machine Learning</h2>
+      <h2>Sign In using your Account Details</h2>
+      <div class="d-flex">
+        <a href="{{ url_for('login') }}" class="btn-get-started scrollto">Sign In</a>
+      
+      </div>
+    </div>
+  </section><!-- End Hero -->
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <h4>Join Us</h4>
+            <p></p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Binex<span>.</span></h3>
+            <p>
+              Maseno University <br>
+              Kisumu, KSM 042<br>
+              Kenya <br><br>
+              <strong>Phone:</strong> +254 725 220 212<br>
+              <strong>Email:</strong> info@binex.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Sign In</a></li>
+             
+            </ul>
+          </div>
+
+          
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Social Networks</h4>
+            <p>Social Media Handles</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-4">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Binex</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        
+        Designed by <a href="">Binex</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/aos/aos.js') }}"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/waypoints/noframework.waypoints.js') }}"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js') }}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="statassets/js/main.js"></script>
+  <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
 </body>
+
 </html>
